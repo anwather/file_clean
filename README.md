@@ -125,21 +125,6 @@ To create and process documents in one command:
 .\Test-WordDocumentCleanup.ps1 -FolderPath "C:\Temp\TestArea" -NumberOfDocuments 5 -CreateSubfolders
 ```
 
-## Customization
-
-### Modifying Sensitivity Labels
-
-The `Clean-WordDocuments.ps1` script includes functionality to apply sensitivity labels. To customize the sensitivity label:
-
-1. Open `Clean-WordDocuments.ps1` in a text editor
-2. Locate the following line:
-
-   ```powershell
-   $doc.SensitivityLabel.SetLabel("87867195-f2b8-4ac2-b0b6-6bb73cb33afc") # Change "General" to the desired label
-   ```
-
-3. Replace the GUID with your desired sensitivity label GUID
-
 ### Adding Additional Processing
 
 You can extend the document processing by adding additional operations after the document is opened and before it is saved. For example, to update document properties:
