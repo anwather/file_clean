@@ -50,7 +50,7 @@ try {
     for ($i = 1; $i -le $mainFolderCount; $i++) {
         $fileName = Join-Path -Path $FolderPath -ChildPath "TestDoc_$i.docx"
         Write-Log "Creating document: $fileName"
-          # Create a new document
+        # Create a new document
         $doc = $word.Documents.Add()
         
         # Add some minimal content
@@ -85,7 +85,7 @@ try {
             
             # Create a new document
             $doc = $word.Documents.Add()
-              # Add some minimal content
+            # Add some minimal content
             $selection = $word.Selection
             $selection.TypeText("This is a subfolder test document $i created on $(Get-Date)")
             $selection.TypeParagraph()
@@ -109,15 +109,18 @@ try {
     
     Write-Log "Creation complete. Created $NumberOfDocuments test document(s)."
     
-} catch {
+}
+catch {
     Write-Log "An error occurred: $_"
-} finally {
+}
+finally {
     # Make sure Word is closed and COM objects are released
     if ($null -ne $word) {
         try {
             $word.Quit()
             [System.Runtime.InteropServices.Marshal]::ReleaseComObject($word) | Out-Null
-        } catch {
+        }
+        catch {
             # Ignore errors in cleanup
         }
     }
